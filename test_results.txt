@@ -1,0 +1,69 @@
+﻿≡ƒº¬ Starting Comprehensive System Tests...
+
+Server should be running on http://localhost:3000
+
+
+=== TESTING FRONTEND FILES ===
+
+Γ£à index.html exists
+Γ£à register.html exists
+Γ£à login.html exists
+Γ£à otp.html exists
+Γ£à verify-registration.html exists
+Γ£à dashboard.html exists
+Γ£à admin.html exists
+Γ£à secure.html exists
+Γ£à user-data.html exists
+Γ£à system-config.html exists
+Γ£à style.css exists
+
+=== TESTING REGISTRATION ===
+
+Γ¥î Registration error: 
+
+=== TESTING LOGIN ===
+
+ΓÜá∩╕Å  Skipping login test (no username from registration)
+
+=== TESTING ACCESS CONTROL ENDPOINTS ===
+
+Γ¥î Secure Access (Admin only) error: 
+Γ¥î User Data (Admin/Moderator) error: 
+Γ¥î System Config (Admin only) error: 
+
+=== TESTING UTILITY ENDPOINTS ===
+
+Γ¥î Decrypt error: 
+Γ¥î Verify Signature error: 
+
+
+=== TEST SUMMARY ===
+
+Total Tests: 17
+Γ£à Passed: 11
+Γ¥î Failed: 0
+ΓÜá∩╕Å  Warnings: 0
+≡ƒö┤ Errors: 6
+
+=== DETAILED RESULTS ===
+
+Γ£à Frontend: index.html: PASS
+Γ£à Frontend: register.html: PASS
+Γ£à Frontend: login.html: PASS
+Γ£à Frontend: otp.html: PASS
+Γ£à Frontend: verify-registration.html: PASS
+Γ£à Frontend: dashboard.html: PASS
+Γ£à Frontend: admin.html: PASS
+Γ£à Frontend: secure.html: PASS
+Γ£à Frontend: user-data.html: PASS
+Γ£à Frontend: system-config.html: PASS
+Γ£à Frontend: style.css: PASS
+≡ƒö┤ Registration API: ERROR
+≡ƒö┤ Secure Access (Admin only): ERROR
+≡ƒö┤ User Data (Admin/Moderator): ERROR
+≡ƒö┤ System Config (Admin only): ERROR
+≡ƒö┤ Decrypt API: ERROR
+≡ƒö┤ Verify Signature API: ERROR
+
+Γ£à Testing complete!
+
