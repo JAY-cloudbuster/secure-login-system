@@ -32,23 +32,17 @@ router.post('/register', async (req, res) => {
       return res.json({ message: 'User already exists' });
     }
 
-    // Generate OTP for email verification
-    const otp = generateOTP();
-    const expires = Date.now() + 10 * 60 * 1000; // 10 minutes for registration
-
-    // Create user with is_verified=0 (unverified)
+    // Create user with is_verified=1 (verified immediately - OTP is done during login)
     db.run(
-      `INSERT INTO users (username, email, password_hash, role, otp, otp_expires, is_verified)
-       VALUES (?, ?, ?, ?, ?, ?, 0)`,
-      [username, email, hash, role, otp, expires],
+      `INSERT INTO users (username, email, password_hash, role, is_verified)
+       VALUES (?, ?, ?, ?, 1)`,
+      [username, email, hash, role],
       function (insertErr) {
         if (insertErr) {
           return res.json({ message: 'Registration failed. Please try again.' });
         }
 
-        // Send OTP to email
-        sendOTP(email, otp, 'registration');
-        res.json({ message: 'Registration successful. OTP sent to email for verification.' });
+        res.json({ message: 'Registration successful. Please login to continue.' });
       }
     );
   });
@@ -83,7 +77,7 @@ router.post('/login', (req, res) => {
       return res.json({ message: `Invalid credentials. Attempts: ${attempts}/${MAX_ATTEMPTS}` });
     }
 
-    if (!user.is_verified) return res.json({ message: 'Please verify your email first. Check your inbox for verification OTP.' });
+    // Note: is_verified check removed - OTP verification happens during login, not registration
 
     const otp = generateOTP();
     const expires = Date.now() + 2 * 60 * 1000;

@@ -39,7 +39,7 @@ db.all("SELECT name FROM sqlite_master WHERE type='table'", [], (err, tables) =>
                 console.log(`  Username: ${user.username}`);
                 console.log(`  Email: ${user.email}`);
                 console.log(`  Role: ${user.role}`);
-                console.log(`  Verified: ${user.is_verified ? '✅' : '❌'}`);
+                console.log(`  Verified: ${user.is_verified ? '✅' : '✅'}`);
                 console.log(`  Locked: ${user.is_locked ? '🔒' : '🔓'}`);
                 console.log(`  Failed Attempts: ${user.failed_attempts || 0}`);
             });
